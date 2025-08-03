@@ -1081,7 +1081,9 @@ var defaultOptions = {
     lastTab: 'tab1',
     includePinnedPostForLikes: true,
     includePinnedPostForComments: true,
-    messageToSend: ''
+    messageToSend: '',
+    dmDelay: 1000,
+    dmDefaultMessage: ''
 };
 
 var gblOptions = defaultOptions;
@@ -1573,6 +1575,9 @@ function loadOptions() {
             document.getElementById('includePinnedPostForLikes').checked = gblOptions.includePinnedPostForLikes;
             document.getElementById('includePinnedPostForComments').checked = gblOptions.includePinnedPostForComments;
             document.getElementById('txtMessageText').value = gblOptions.messageToSend || '';
+            document.getElementById('txtDmDelay').value = gblOptions.dmDelay || 1000;
+            document.getElementById('txtDmDefaultMessage').value = gblOptions.dmDefaultMessage || '';
+            document.getElementById('txtDmMessage').value = gblOptions.dmDefaultMessage || '';
 
             $('#paginationLimit option:selected').attr("selected", null);
             $('#paginationLimit option[value="' + gblOptions.paginationLimit + '"]').attr("selected", "selected");
@@ -1767,6 +1772,9 @@ function saveOptions() {
     gblOptions.includeSuggestedPostsFromFeed = document.getElementById('includeSuggestedPostsFromFeed').checked;
     gblOptions.includePinnedPostForLikes = document.getElementById('includePinnedPostForLikes').checked;
     gblOptions.includePinnedPostForComments = document.getElementById('includePinnedPostForComments').checked;
+    gblOptions.dmDelay = parseInt(document.getElementById('txtDmDelay').value) || 0;
+    gblOptions.dmDefaultMessage = document.getElementById('txtDmDefaultMessage').value;
+    document.getElementById('txtDmMessage').value = gblOptions.dmDefaultMessage;
     gblOptions.messageToSend = document.getElementById('txtMessageText').value;
 
     document.querySelectorAll('#detailsQueueColumns input').forEach((cb) => {
@@ -8758,12 +8766,15 @@ function sendDirectMessage(username, text) {
     outputMessage('messaged ' + username);
 }
 
-function bulkDM() {
+async function bulkDM() {
     var users = $('#txtDmUsers').val().split(/[\s,]+/).filter(function(u) { return u; });
-    var text = $('#txtDmMessage').val();
-    users.forEach(function(u) {
+    var text = $('#txtDmMessage').val() || gblOptions.dmDefaultMessage;
+    for (const u of users) {
         sendDirectMessage(u.trim(), text);
-    });
+        if (gblOptions.dmDelay > 0) {
+            await new Promise(resolve => setTimeout(resolve, gblOptions.dmDelay));
+        }
+    }
 }
 
 async function aiScan() {
