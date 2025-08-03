@@ -1641,8 +1641,9 @@ input.gridjs-search-input {
 #tab4:checked~section .tab4,
 #tab5:checked~section .tab5,
 #tab6:checked~section .tab6,
-#tab7:checked~section .tab7,
-#tab8:checked~section .tab8 {
+#tab8:checked~section .tab8,
+#tab9:checked~section .tab9,
+#tab10:checked~section .tab10 {
     display: block;
     height: 100%;
 }
@@ -1653,8 +1654,9 @@ input.gridjs-search-input {
 #tab4:checked~nav .tab4 label,
 #tab5:checked~nav .tab5 label,
 #tab6:checked~nav .tab6 label,
-#tab7:checked~nav .tab7 label,
-#tab8:checked~nav .tab8 label {
+#tab8:checked~nav .tab8 label,
+#tab9:checked~nav .tab9 label,
+#tab10:checked~nav .tab10 label {
     background-color: #fafafa;
     border-bottom: 1px solid #fafafa;
     color: #111;
@@ -1667,8 +1669,9 @@ input.gridjs-search-input {
 #tab4:checked~nav .tab4 label:after,
 #tab5:checked~nav .tab5 label:after,
 #tab6:checked~nav .tab6 label:after,
-#tab7:checked~nav .tab7 label:after,
-#tab8:checked~nav .tab8 label:after {
+#tab8:checked~nav .tab8 label:after,
+#tab9:checked~nav .tab9 label:after,
+#tab10:checked~nav .tab10 label:after {
     content: "";
     display: block;
     position: absolute;
