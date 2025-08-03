@@ -75,6 +75,39 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         });
     }
 
+    if (request.unfollowUser) {
+
+        var username = request.unfollowUser;
+
+        chrome.tabs.create({
+            url: "https://www.instagram.com/" + username
+        }, function(tab) {
+            var tabId = tab.id;
+            function tabListener(id, info) {
+                if (id === tabId && info.status === 'complete') {
+                    setTimeout(function() {
+                        chrome.tabs.sendMessage(tabId, {
+                            hideGrowbot: true
+                        });
+                        chrome.tabs.sendMessage(tabId, {
+                            clickSomething: 'button:contains("Following"), div[role="button"]:contains("Following")'
+                        });
+                        setTimeout(function() {
+                            chrome.tabs.sendMessage(tabId, {
+                                clickSomething: 'button:contains("Unfollow"), div[role="button"]:contains("Unfollow")'
+                            });
+                        }, 1000);
+                        setTimeout(function() {
+                            chrome.tabs.remove(tabId);
+                        }, 8000);
+                    }, 3000);
+                    chrome.tabs.onUpdated.removeListener(tabListener);
+                }
+            }
+            chrome.tabs.onUpdated.addListener(tabListener);
+        });
+    }
+
 
     if (request.openReelTab) {
 

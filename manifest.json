@@ -33,7 +33,12 @@
             "storage",
             "unlimitedStorage"
         ],
-        "host_permissions": ["https://*.instagram.com/*"],
+        "host_permissions": [
+            "https://*.instagram.com/*",
+            "https://api.openai.com/*",
+            "https://openrouter.ai/*",
+            "https://api.deepseek.com/*"
+        ],
         "web_accessible_resources": [{
             "resources": ["*.js", "*.png", "*.css", "*.json", "*.html"],
             "matches": ["https://*.instagram.com/*", "https://*.growbotforfollowers.com/*"]
