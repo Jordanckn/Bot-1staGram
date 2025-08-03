@@ -27,22 +27,20 @@
             <input id="tab4" type="radio" name="pct" />
             <input id="tab5" type="radio" name="pct" />
             <input id="tab6" type="radio" name="pct" />
-            <input id="tab7" type="radio" name="pct" />
             <input id="tab8" type="radio" name="pct" />
             <input id="tab9" type="radio" name="pct" />
             <input id="tab10" type="radio" name="pct" />
             <nav>
                 <ul>
-                    <li class="tab1"> <label for="tab1">Accounts Queue</label> </li>
-                    <li class="tab2"> <label for="tab2">Media Queue</label> </li>
-                    <li class="tab8"> <label for="tab8">Actions Queue</label> </li>
-                    <li class="tab3"> <label for="tab3">Filters</label> </li>
-                    <li class="tab4"> <label for="tab4">Settings</label> </li>
-                    <li class="tab5"> <label for="tab5">Log</label> </li>
-                    <li class="tab6"> <label for="tab6">News &amp; Updates</label> </li>
-                    <li class="tab7"> <label for="tab7">Help &amp; FAQ</label> </li>
-                    <li class="tab9"> <label for="tab9">Bulk DM</label> </li>
-                    <li class="tab10"> <label for="tab10">AI Assistant</label> </li>
+                    <li class="tab1"> <label for="tab1" localeMessage="AccountsQueueTab">Accounts Queue</label> </li>
+                    <li class="tab2"> <label for="tab2" localeMessage="MediaQueueTab">Media Queue</label> </li>
+                    <li class="tab8"> <label for="tab8" localeMessage="ActionsQueueTab">Actions Queue</label> </li>
+                    <li class="tab3"> <label for="tab3" localeMessage="FiltersTab">Filters</label> </li>
+                    <li class="tab4"> <label for="tab4" localeMessage="SettingsTab">Settings</label> </li>
+                    <li class="tab5"> <label for="tab5" localeMessage="LogTab">Log</label> </li>
+                    <li class="tab6"> <label for="tab6" localeMessage="NewsTab">News</label> </li>
+                    <li class="tab9"> <label for="tab9" localeMessage="BulkDMTab">Bulk DM</label> </li>
+                    <li class="tab10"> <label for="tab10" localeMessage="AIAssistantTab">AI Assistant</label> </li>
                 </ul>
             </nav>
             <section id="mainSection">
@@ -146,7 +144,7 @@
                                     </label>
                                     <label for="radioMessage" title="Send a direct message to each account">
                                         <input type="radio" id="radioMessage" name="queueAction" value="radioMessage" /> <span>Send Message</span>
-                                        <input type="text" id="txtMessageText" placeholder="Hello!" />
+                                        <input type="text" id="txtMessageText" placeholder="Hello!" localePlaceholder="MessagePlaceholder" />
                                     </label>
                                     <label for="radioGetMoreData" title="Gets more data about each account in queue: Private Status, Followers, Following, Post Count, etc">
                                         <input type="radio" id="radioGetMoreData" name="queueAction" value="radioGetMoreData">
@@ -328,12 +326,12 @@
                         <label for="cbFilterExternalUrlContains">
                             <input type="checkbox" id="cbFilterExternalUrlContains" />
                             <span localeMessage="ExternalUrlContainsText">Link in Bio Has</span>
-                            <input type="text" id="txtFilterExternalUrlContains" placeholder="youtube.com">
+                            <input type="text" id="txtFilterExternalUrlContains" placeholder="youtube.com" localePlaceholder="ExternalUrlContainsPlaceholder">
                         </label>
                         <label for="cbFilterExternalUrlNotContains">
                             <input type="checkbox" id="cbFilterExternalUrlNotContains" />
                             <span localeMessage="ExternalUrlNotContainsText">Link in Bio Does Not Have</span>
-                            <input type="text" id="txtFilterExternalUrlNotContains" placeholder="onlyfans.com">
+                            <input type="text" id="txtFilterExternalUrlNotContains" placeholder="onlyfans.com" localePlaceholder="ExternalUrlNotContainsPlaceholder">
                         </label>
                         <label for="cbFilterBioContains">
                             <input type="checkbox" id="cbFilterBioContains" />
@@ -391,8 +389,8 @@
                             <summary localeMessage="relinkSubscription">Re-link Subscription</summary>
                             <br>
                             <form id="formRelinkSubscription">
-                                <input type="text" id="email" name="email" placeholder="email@address.com" style="border:1px solid #666;"></input>
-                                <input type="text" id="last4" name="last4" placeholder="Last 4 digits of payment card" maxlength="4" style="border:1px solid #666;"></input>
+                                <input type="text" id="email" name="email" placeholder="email@address.com" localePlaceholder="EmailPlaceholder" style="border:1px solid #666;"></input>
+                                <input type="text" id="last4" name="last4" placeholder="Last 4 digits of payment card" localePlaceholder="Last4Placeholder" maxlength="4" style="border:1px solid #666;"></input>
                                 <select id="month" name="month">
                                     <option>CC Exp Month</option>
                                     <option value="01">01</option>
@@ -866,23 +864,11 @@
                         </p>
                     </details>
                 </div>
-                <div class="tab7">
-                    <div id="faqhelp">
-                        <iframe id="iframeFAQ" src="https://www.growbotforfollowers.com/index.php?faqonly=true"></iframe>
-                        <p>Please read the entire FAQ. If your question is not answered, contact me. Please include screenshots and the Log.</p>
-                        <p>
-                            <a href="https://www.growbotforfollowers.com/" target="_blank" id="iconHelp">https://www.growbotforfollowers.com</a>
-                            <a href="mailto:growbotautomator@gmail.com" id="iconEmail" class="growbotEmailLink">growbotautomator@gmail.com</a>
-                            <a href="https://www.youtube.com/@growbotautomator/videos" target="_blank" id="iconYoutube">https://www.youtube.com/@growbotautomator</a>
-                            <a href="https://www.instagram.com/therealgrowbot" target="_blank" id="iconInstagram">@therealgrowbot</a>
-                        </p>
-                    </div>
-                </div>
                 <div class="tab9">
                     <h3>Bulk Direct Message</h3>
                     <p>Enter Instagram usernames (one per line or separated by commas) and a message to send.</p>
-                    <textarea id="txtDmUsers" placeholder="user1, user2" style="width:100%;height:80px;"></textarea>
-                    <textarea id="txtDmMessage" placeholder="Your message" style="width:100%;height:80px;"></textarea>
+                    <textarea id="txtDmUsers" placeholder="user1, user2" localePlaceholder="DmUsersPlaceholder" style="width:100%;height:80px;"></textarea>
+                    <textarea id="txtDmMessage" placeholder="Your message" localePlaceholder="DmMessagePlaceholder" style="width:100%;height:80px;"></textarea>
                     <div class="igBotInjectedButton" id="btnSendBulkDM">Send DM</div>
                 </div>
                 <div class="tab10">
@@ -896,7 +882,7 @@
                             <option value="deepseek">DeepSeek</option>
                         </select>
                     </label>
-                    <label>API Key: <input type="text" id="txtAiApiKey" placeholder="API key" /></label>
+                    <label>API Key: <input type="text" id="txtAiApiKey" placeholder="API key" localePlaceholder="ApiKeyPlaceholder" /></label>
                     <div class="igBotInjectedButton" id="btnAiScan">Scan</div>
                     <div id="aiResults"></div>
                 </div>

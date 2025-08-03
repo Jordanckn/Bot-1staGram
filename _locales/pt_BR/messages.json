@@ -435,6 +435,57 @@
    "appDesc": {
       "message": "Seguir/Deixar de Seguir/Curtir automático com filtros avançados, temporizadores aleatórios e mais recursos de alta tecnologia."
    },
+   "AccountsQueueTab": {
+      "message": "Fila de contas"
+   },
+   "MediaQueueTab": {
+      "message": "Fila de mídias"
+   },
+   "ActionsQueueTab": {
+      "message": "Fila de ações"
+   },
+   "FiltersTab": {
+      "message": "Filtros"
+   },
+   "SettingsTab": {
+      "message": "Configurações"
+   },
+   "LogTab": {
+      "message": "Registro"
+   },
+   "NewsTab": {
+      "message": "Notícias"
+   },
+   "BulkDMTab": {
+      "message": "DM em massa"
+   },
+   "AIAssistantTab": {
+      "message": "Assistente de IA"
+   },
+   "MessagePlaceholder": {
+      "message": "Olá!"
+   },
+   "ExternalUrlContainsPlaceholder": {
+      "message": "youtube.com"
+   },
+   "ExternalUrlNotContainsPlaceholder": {
+      "message": "onlyfans.com"
+   },
+   "EmailPlaceholder": {
+      "message": "email@endereco.com"
+   },
+   "Last4Placeholder": {
+      "message": "Últimos 4 dígitos do cartão"
+   },
+   "DmUsersPlaceholder": {
+      "message": "usuário1, usuário2"
+   },
+   "DmMessagePlaceholder": {
+      "message": "Sua mensagem"
+   },
+   "ApiKeyPlaceholder": {
+      "message": "Chave da API"
+   },
    "applyFiltersAutomatically": {
       "message": "Aplicar Filtros Automaticamente ao Seguir"
    },
