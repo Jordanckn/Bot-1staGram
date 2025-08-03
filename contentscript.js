@@ -1080,7 +1080,8 @@ var defaultOptions = {
     LikeWhenWatchingReel: true,
     lastTab: 'tab1',
     includePinnedPostForLikes: true,
-    includePinnedPostForComments: true
+    includePinnedPostForComments: true,
+    messageToSend: ''
 };
 
 var gblOptions = defaultOptions;
@@ -1571,6 +1572,7 @@ function loadOptions() {
             document.getElementById('includeSuggestedPostsFromFeed').checked = gblOptions.includeSuggestedPostsFromFeed;
             document.getElementById('includePinnedPostForLikes').checked = gblOptions.includePinnedPostForLikes;
             document.getElementById('includePinnedPostForComments').checked = gblOptions.includePinnedPostForComments;
+            document.getElementById('txtMessageText').value = gblOptions.messageToSend || '';
 
             $('#paginationLimit option:selected').attr("selected", null);
             $('#paginationLimit option[value="' + gblOptions.paginationLimit + '"]').attr("selected", "selected");
@@ -1765,7 +1767,7 @@ function saveOptions() {
     gblOptions.includeSuggestedPostsFromFeed = document.getElementById('includeSuggestedPostsFromFeed').checked;
     gblOptions.includePinnedPostForLikes = document.getElementById('includePinnedPostForLikes').checked;
     gblOptions.includePinnedPostForComments = document.getElementById('includePinnedPostForComments').checked;
-
+    gblOptions.messageToSend = document.getElementById('txtMessageText').value;
 
     document.querySelectorAll('#detailsQueueColumns input').forEach((cb) => {
         var columnDataName = cb.id.replace('cb_', '');
@@ -4023,6 +4025,43 @@ function ajaxFollowAll() {
     }
 }
 
+function ajaxMessageAll() {
+    if (acctsQueue.length == 0) {
+        printMessage(chrome.i18n.getMessage('QueueEmpty'));
+        $('#btnProcessQueue').removeClass('pulsing');
+        return false;
+    }
+
+    if (checkMaxActionsAndDelayIfNecessary(ajaxMessageAll) == false) {
+        messageUser(acctsQueue.shift());
+    }
+}
+
+async function messageUser(acct) {
+    if (!acct) return false;
+
+    if (gblOptions.filterOptions.applyFiltersAutomatically == true) {
+        try {
+            const met = await filterCriteriaMet(acct);
+            if (!met) {
+                outputMessage(acct.username + ' did not match your filters: skipped');
+                removeAcctFromQueueDisplay(acct.id, true);
+                var waitSkip = getRandomizedTime(gblOptions.timeDelayAfterSkip);
+                timeoutsQueue.push(setTimeout(ajaxMessageAll, waitSkip));
+                return false;
+            }
+        } catch (e) {}
+    }
+
+    chrome.runtime.sendMessage({
+        messageUser: { username: acct.username, text: gblOptions.messageToSend }
+    });
+    removeAcctFromQueueDisplay(acct.id);
+    outputMessage('messaged ' + acct.username);
+    var waitTime = getRandomizedTime(gblOptions.timeDelay);
+    timeoutsQueue.push(setTimeout(ajaxMessageAll, waitTime));
+}
+
 function removeAcctFromQueueDisplay(id, gray) {
     if (gray === true) {
         $('#igBotQueueContainer #' + id + '_container').css({
@@ -5386,6 +5425,8 @@ function initProcessQueue() {
         ajaxLikeAll();
     } else if (document.getElementById('radioBlock').checked === true || document.getElementById('radioRemoveFromFollowers').checked === true) {
         ajaxRemoveOrBlockAll();
+    } else if (document.getElementById('radioMessage').checked === true) {
+        ajaxMessageAll();
     } else if (document.getElementById('radioGetMoreData').checked === true) {
 
         var safeDelaySeconds = 1;
@@ -7235,6 +7276,25 @@ function userUpdateListener() {
                     console.log('clicked  ' + request.clickSomething);
                 }
 
+                return true;
+            }
+
+            if (request.sendDirectMessage) {
+                var msg = request.sendDirectMessage.text;
+                var box = $('textarea[placeholder="Message..."] , div[role="textbox"][contenteditable="true"]').first();
+                if (box.length) {
+                    if (box.is('textarea')) {
+                        box.val(msg);
+                    } else {
+                        box.text(msg);
+                    }
+                    box.trigger('input');
+                    var btn = $('button[type="submit"], svg[aria-label="Send"]').last();
+                    if (btn.length) {
+                        if (btn.is('svg')) btn = btn.parent();
+                        btn.click();
+                    }
+                }
                 return true;
             }
 
