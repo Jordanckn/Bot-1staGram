@@ -7281,14 +7281,15 @@ function userUpdateListener() {
 
             if (request.sendDirectMessage) {
                 var msg = request.sendDirectMessage.text;
-                var box = $('textarea[placeholder="Message..."] , div[role="textbox"][contenteditable="true"]').first();
+                var box = $('textarea[placeholder="Message..."], textarea[placeholder="Message…"], div[role="textbox"][contenteditable="true"]').first();
                 if (box.length) {
                     if (box.is('textarea')) {
-                        box.val(msg);
+                        var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
+                        nativeSetter.call(box[0], msg);
                     } else {
-                        box.text(msg);
+                        box[0].textContent = msg;
                     }
-                    box.trigger('input');
+                    box[0].dispatchEvent(new Event('input', { bubbles: true }));
                     var btn = $('button[type="submit"], svg[aria-label="Send"]').last();
                     if (btn.length) {
                         if (btn.is('svg')) btn = btn.parent();
