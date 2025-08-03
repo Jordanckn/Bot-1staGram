@@ -538,6 +538,22 @@
                                 </label>
                             </div>
                         </details>
+                        <details id="detailsAiSettings">
+                            <summary>AI Settings</summary>
+                            <div class="followOptions">
+                                <label for="aiProviderSetting">Provider:
+                                    <select id="aiProviderSetting">
+                                        <option value="openai">OpenAI</option>
+                                        <option value="openrouter">OpenRouter</option>
+                                        <option value="deepseek">DeepSeek</option>
+                                    </select>
+                                </label>
+                                <label for="txtAiApiKeySetting">API Key:
+                                    <input type="text" id="txtAiApiKeySetting" placeholder="API key" />
+                                </label>
+                                <div class="igBotInjectedButton" id="btnSaveAiSettings">Save AI Settings</div>
+                            </div>
+                        </details>
                         <details id="detailsQueueColumns">
                             <summary localeMessage="QueueColumnsOptions">Columns to Show in Queue and CSV Export *BETA*</summary>
                             <div class="followOptions" id="queueColumnsOptions"></div>
@@ -899,6 +915,11 @@
                     <label>API Key: <input type="text" id="txtAiApiKey" placeholder="API key" /></label>
                     <div class="igBotInjectedButton" id="btnAiScan">Scan</div>
                     <div id="aiResults"></div>
+                    <div id="aiDmModal" style="display:none;position:fixed;top:40%;left:40%;background:#fff;padding:10px;border:1px solid #666;z-index:1000;">
+                        <textarea id="aiDmText" style="width:250px;height:80px;"></textarea>
+                        <div class="igBotInjectedButton" id="aiDmSend">Send</div>
+                        <div class="igBotInjectedButton" id="aiDmCancel">Cancel</div>
+                    </div>
                 </div>
             </section>
         </div>
