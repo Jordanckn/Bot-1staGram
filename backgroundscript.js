@@ -42,6 +42,39 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         });
     }
 
+    if (request.messageUser) {
+
+        var u = request.messageUser;
+
+        chrome.tabs.create({
+            url: "https://www.instagram.com/" + u.username
+        }, function(tab) {
+            var tabId = tab.id;
+            function tabListener(id, info) {
+                if (id === tabId && info.status === 'complete') {
+                    setTimeout(function() {
+                        chrome.tabs.sendMessage(tabId, {
+                            hideGrowbot: true
+                        });
+                        chrome.tabs.sendMessage(tabId, {
+                            clickSomething: 'button:contains("Message")'
+                        });
+                        setTimeout(function() {
+                            chrome.tabs.sendMessage(tabId, {
+                                sendDirectMessage: { text: u.text }
+                            });
+                        }, 2000);
+                        setTimeout(function() {
+                            chrome.tabs.remove(tabId);
+                        }, 8000);
+                    }, 3000);
+                    chrome.tabs.onUpdated.removeListener(tabListener);
+                }
+            }
+            chrome.tabs.onUpdated.addListener(tabListener);
+        });
+    }
+
 
     if (request.openReelTab) {
 
