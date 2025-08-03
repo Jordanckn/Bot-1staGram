@@ -57,7 +57,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
                             hideGrowbot: true
                         });
                         chrome.tabs.sendMessage(tabId, {
-                            clickSomething: 'button:contains("Message")'
+                            clickSomething: 'button:contains("Message"), div[role="button"]:contains("Message")'
                         });
                         setTimeout(function() {
                             chrome.tabs.sendMessage(tabId, {
