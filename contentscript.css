@@ -1742,3 +1742,11 @@ nav {
     font-size: 12pt;
     font-weight: normal;
 }
+
+.aiResult {
+    margin: 5px 0;
+}
+
+.aiResult button {
+    margin-left: 5px;
+}

@@ -29,6 +29,8 @@
             <input id="tab6" type="radio" name="pct" />
             <input id="tab7" type="radio" name="pct" />
             <input id="tab8" type="radio" name="pct" />
+            <input id="tab9" type="radio" name="pct" />
+            <input id="tab10" type="radio" name="pct" />
             <nav>
                 <ul>
                     <li class="tab1"> <label for="tab1">Accounts Queue</label> </li>
@@ -39,6 +41,8 @@
                     <li class="tab5"> <label for="tab5">Log</label> </li>
                     <li class="tab6"> <label for="tab6">News &amp; Updates</label> </li>
                     <li class="tab7"> <label for="tab7">Help &amp; FAQ</label> </li>
+                    <li class="tab9"> <label for="tab9">Bulk DM</label> </li>
+                    <li class="tab10"> <label for="tab10">AI Assistant</label> </li>
                 </ul>
             </nav>
             <section id="mainSection">
@@ -873,6 +877,28 @@
                             <a href="https://www.instagram.com/therealgrowbot" target="_blank" id="iconInstagram">@therealgrowbot</a>
                         </p>
                     </div>
+                </div>
+                <div class="tab9">
+                    <h3>Bulk Direct Message</h3>
+                    <p>Enter Instagram usernames (one per line or separated by commas) and a message to send.</p>
+                    <textarea id="txtDmUsers" placeholder="user1, user2" style="width:100%;height:80px;"></textarea>
+                    <textarea id="txtDmMessage" placeholder="Your message" style="width:100%;height:80px;"></textarea>
+                    <div class="igBotInjectedButton" id="btnSendBulkDM">Send DM</div>
+                </div>
+                <div class="tab10">
+                    <h3>AI Assistant</h3>
+                    <p>Use AI to discover new accounts based on a keyword.</p>
+                    <label>Keyword: <input type="text" id="txtAiKeyword" /></label>
+                    <label>Provider:
+                        <select id="aiProvider">
+                            <option value="openai">OpenAI</option>
+                            <option value="openrouter">OpenRouter</option>
+                            <option value="deepseek">DeepSeek</option>
+                        </select>
+                    </label>
+                    <label>API Key: <input type="text" id="txtAiApiKey" placeholder="API key" /></label>
+                    <div class="igBotInjectedButton" id="btnAiScan">Scan</div>
+                    <div id="aiResults"></div>
                 </div>
             </section>
         </div>

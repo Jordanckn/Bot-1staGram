@@ -5503,6 +5503,21 @@ function bindEvents() {
     $('#btnSaveQueueToStorage').click(saveQueueToStorageAndDisk);
     $('#btnExportQueue').click(exportQueue);
 
+    $('#btnSendBulkDM').click(bulkDM);
+    $('#btnAiScan').click(aiScan);
+    $(document).on('click', '.aiFollow', function() {
+        chrome.runtime.sendMessage({ follow: { username: $(this).data('username') } });
+    });
+    $(document).on('click', '.aiUnfollow', function() {
+        chrome.runtime.sendMessage({ unfollowUser: $(this).data('username') });
+    });
+    $(document).on('click', '.aiDM', function() {
+        var msg = prompt('Message to send', $('#txtDmMessage').val() || '');
+        if (msg) {
+            sendDirectMessage($(this).data('username'), msg);
+        }
+    });
+
 
     if (getCurrentPageUsername() != '') {
         setCurrentPageUsername();
@@ -8736,6 +8751,70 @@ function waitForDomReady() {
     } else {
         document.addEventListener('DOMContentLoaded', domReady);
     }
+}
+
+function sendDirectMessage(username, text) {
+    chrome.runtime.sendMessage({ messageUser: { username: username, text: text } });
+    outputMessage('messaged ' + username);
+}
+
+function bulkDM() {
+    var users = $('#txtDmUsers').val().split(/[\s,]+/).filter(function(u) { return u; });
+    var text = $('#txtDmMessage').val();
+    users.forEach(function(u) {
+        sendDirectMessage(u.trim(), text);
+    });
+}
+
+async function aiScan() {
+    var keyword = $('#txtAiKeyword').val();
+    var provider = $('#aiProvider').val();
+    var apiKey = $('#txtAiApiKey').val();
+    if (!keyword || !apiKey) {
+        alert('Keyword and API key required');
+        return;
+    }
+    var url;
+    var body = { messages: [{ role: 'user', content: 'List Instagram usernames related to ' + keyword + ' separated by commas.' }] };
+    if (provider === 'openai') {
+        url = 'https://api.openai.com/v1/chat/completions';
+        body.model = 'gpt-3.5-turbo';
+    } else if (provider === 'openrouter') {
+        url = 'https://openrouter.ai/api/v1/chat/completions';
+        body.model = 'openrouter/auto';
+    } else {
+        url = 'https://api.deepseek.com/v1/chat/completions';
+        body.model = 'deepseek-chat';
+    }
+    try {
+        var response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + apiKey
+            },
+            body: JSON.stringify(body)
+        });
+        var data = await response.json();
+        var text = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '';
+        var usernames = text.split(/[\s,]+/).map(function(u) { return u.replace('@', '').trim(); }).filter(function(u) { return u; });
+        renderAiResults(usernames);
+    } catch (e) {
+        outputMessage('AI scan failed');
+        console.error(e);
+    }
+}
+
+function renderAiResults(users) {
+    var container = $('#aiResults');
+    container.empty();
+    users.forEach(function(u) {
+        var row = $('<div class="aiResult"></div>').text(u + ' ');
+        $('<button class="aiFollow">Follow</button>').attr('data-username', u).appendTo(row);
+        $('<button class="aiUnfollow">Unfollow</button>').attr('data-username', u).appendTo(row);
+        $('<button class="aiDM">DM</button>').attr('data-username', u).appendTo(row);
+        container.append(row);
+    });
 }
 
 if (window.location.href == 'https://www.instagram.com/') {
