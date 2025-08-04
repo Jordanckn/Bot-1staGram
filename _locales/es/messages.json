@@ -7,6 +7,74 @@
     {
         "message": "Automatic follow/unfollow/like with advanced filters, randomized timers, and more high-tech features."
     },
+    "AccountsQueueTab":
+    {
+        "message": "Cola de cuentas"
+    },
+    "MediaQueueTab":
+    {
+        "message": "Cola de medios"
+    },
+    "ActionsQueueTab":
+    {
+        "message": "Cola de acciones"
+    },
+    "FiltersTab":
+    {
+        "message": "Filtros"
+    },
+    "SettingsTab":
+    {
+        "message": "Configuración"
+    },
+    "LogTab":
+    {
+        "message": "Registro"
+    },
+    "NewsTab":
+    {
+        "message": "Noticias"
+    },
+    "BulkDMTab":
+    {
+        "message": "DM masivo"
+    },
+    "AIAssistantTab":
+    {
+        "message": "Asistente de IA"
+    },
+    "MessagePlaceholder":
+    {
+        "message": "¡Hola!"
+    },
+    "ExternalUrlContainsPlaceholder":
+    {
+        "message": "youtube.com"
+    },
+    "ExternalUrlNotContainsPlaceholder":
+    {
+        "message": "onlyfans.com"
+    },
+    "EmailPlaceholder":
+    {
+        "message": "correo@direccion.com"
+    },
+    "Last4Placeholder":
+    {
+        "message": "Últimos 4 dígitos de la tarjeta"
+    },
+    "DmUsersPlaceholder":
+    {
+        "message": "usuario1, usuario2"
+    },
+    "DmMessagePlaceholder":
+    {
+        "message": "Tu mensaje"
+    },
+    "ApiKeyPlaceholder":
+    {
+        "message": "Clave API"
+    },
     "Followers":
     {
         "message": "Followers"

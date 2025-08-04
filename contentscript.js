@@ -5316,6 +5316,13 @@ function localizeExtension() {
         }
     });
 
+    $('#igBotInjectedContainer [localePlaceholder]').each(function() {
+        var localeMessage = chrome.i18n.getMessage($(this).attr('localePlaceholder'));
+        if (localeMessage.length > 0) {
+            $(this).attr('placeholder', localeMessage);
+        }
+    });
+
     $('#igBotInjectedContainer [localeReplaceString]').each(function() {
         $(this).text($(this).text().replace($(this).attr('localeReplaceString'), chrome.i18n.getMessage($(this).attr('localeReplaceString').replace(/ /g, '_'))));
     });

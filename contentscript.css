@@ -1583,11 +1583,17 @@ input.gridjs-search-input {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.pc-tab ul li {
+    flex: 1 1 auto;
 }
 
 .pc-tab ul li label {
     cursor: pointer;
-    float: left;
     padding: 15px 25px;
     border: 1px solid #ddd;
     background-color: #eeeeee;
@@ -1595,6 +1601,8 @@ input.gridjs-search-input {
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: 10px center;
+    display: block;
+    text-align: center;
 }
 
 .pc-tab ul li label[for="tab3"] {
@@ -1622,39 +1630,43 @@ input.gridjs-search-input {
 .pc-tab section {
     border-top: 1px solid #ddd;
     height: 95%;
-    clear: both;
+    display: flex;
+    flex-direction: column;
 }
 
 .pc-tab section>div {
     background: #fafafa;
-    /*padding: 20px;
-      width: 100%;
-      line-height: 1.5em;
-      letter-spacing: 0.3px;
-      color: #444;
-    */
+    width: 100%;
+    line-height: 1.5em;
+    letter-spacing: 0.3px;
+    color: #444;
+    padding: 20px;
 }
 
 #tab1:checked~section .tab1,
 #tab2:checked~section .tab2,
+#tab8:checked~section .tab8,
 #tab3:checked~section .tab3,
 #tab4:checked~section .tab4,
 #tab5:checked~section .tab5,
 #tab6:checked~section .tab6,
-#tab7:checked~section .tab7,
-#tab8:checked~section .tab8 {
-    display: block;
+#tab9:checked~section .tab9,
+#tab10:checked~section .tab10 {
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    gap: 10px;
 }
 
 #tab1:checked~nav .tab1 label,
 #tab2:checked~nav .tab2 label,
+#tab8:checked~nav .tab8 label,
 #tab3:checked~nav .tab3 label,
 #tab4:checked~nav .tab4 label,
 #tab5:checked~nav .tab5 label,
 #tab6:checked~nav .tab6 label,
-#tab7:checked~nav .tab7 label,
-#tab8:checked~nav .tab8 label {
+#tab9:checked~nav .tab9 label,
+#tab10:checked~nav .tab10 label {
     background-color: #fafafa;
     border-bottom: 1px solid #fafafa;
     color: #111;
@@ -1663,12 +1675,13 @@ input.gridjs-search-input {
 
 #tab1:checked~nav .tab1 label:after,
 #tab2:checked~nav .tab2 label:after,
+#tab8:checked~nav .tab8 label:after,
 #tab3:checked~nav .tab3 label:after,
 #tab4:checked~nav .tab4 label:after,
 #tab5:checked~nav .tab5 label:after,
 #tab6:checked~nav .tab6 label:after,
-#tab7:checked~nav .tab7 label:after,
-#tab8:checked~nav .tab8 label:after {
+#tab9:checked~nav .tab9 label:after,
+#tab10:checked~nav .tab10 label:after {
     content: "";
     display: block;
     position: absolute;
