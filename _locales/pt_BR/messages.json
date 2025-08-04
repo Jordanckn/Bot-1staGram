@@ -208,6 +208,13 @@
       },
       "title": "Carrega contas que curtiram as postagens de $account$"
    },
+   "LoadAccounts": {
+      "message": "Carregar contas"
+   },
+   "LoadAccountsFromMediaQueue": {
+      "message": "Carregar contas da fila de mídia",
+      "title": "Carrega contas da fila de mídia"
+   },
    "LoadPendingFollowRequests": {
       "message": "Carregar Pedidos Pendentes de Seguimento",
       "title": "Carregar pedidos para seguir contas privadas que ainda não foram aprovados ou rejeitados (esses contam para o seu total de seguidores)"

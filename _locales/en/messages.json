@@ -350,6 +350,15 @@
             }
         }
     },
+    "LoadAccounts":
+    {
+        "message": "Load Accounts"
+    },
+    "LoadAccountsFromMediaQueue":
+    {
+        "message": "Load Accounts from Media Queue",
+        "title": "Loads accounts from the media queue"
+    },
     "LoadPendingFollowRequests":
     {
         "message": "Load Pending Follow Requests",

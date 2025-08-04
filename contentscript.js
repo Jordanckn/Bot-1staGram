@@ -1159,7 +1159,7 @@ function gbInit() {
 
 
     injectControlsDiv();
-
+    localizeExtension();
 
     if (getBackgroundInfo() === false) {
         return false;
