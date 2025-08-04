@@ -350,6 +350,15 @@
             }
         }
     },
+    "LoadAccounts":
+    {
+        "message": "Charger des comptes"
+    },
+    "LoadAccountsFromMediaQueue":
+    {
+        "message": "Charger des comptes depuis la file des médias",
+        "title": "Charge des comptes depuis la file des médias"
+    },
     "LoadPendingFollowRequests":
     {
         "message": "Charger les demandes d'abonnement en attente",
