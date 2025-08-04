@@ -1086,7 +1086,8 @@ var defaultOptions = {
     lastTab: 'tab1',
     includePinnedPostForLikes: true,
     includePinnedPostForComments: true,
-    messageToSend: ''
+    messageToSend: '',
+    theme: 'auto'
 };
 
 var gblOptions = defaultOptions;
@@ -1552,6 +1553,8 @@ function loadOptions() {
             document.getElementById('cbShowLikesInQueue').checked = gblOptions.showLikesInQueue;
             document.getElementById('cbShowQueueOnScreen').checked = gblOptions.cbShowQueueOnScreen;
             document.getElementById('cbRemoveUnusedColumns').checked = gblOptions.cbRemoveUnusedColumns;
+            document.getElementById('selectTheme').value = gblOptions.theme || 'auto';
+            applyTheme();
             document.getElementById('cbClickNotNow').checked = gblOptions.clickNotNow;
             document.getElementById('cbLoadQueueOnStartup').checked = gblOptions.loadQueueOnStartup;
             document.getElementById('cbLimitActions').checked = gblOptions.maxPerEnabled;
@@ -1678,6 +1681,17 @@ function setFilterIconOpacity() {
     }
 }
 
+function applyTheme() {
+    var container = document.getElementById('igBotInjectedContainer');
+    if (!container) return;
+    container.classList.remove('light', 'dark');
+    if (gblOptions.theme === 'dark') {
+        container.classList.add('dark');
+    } else if (gblOptions.theme === 'light') {
+        container.classList.add('light');
+    }
+}
+
 function saveOptions() {
 
     gblOptions.filterOptions.applyFiltersAutomatically = document.getElementById('cbApplyFilterAutomatically').checked;
@@ -1773,6 +1787,8 @@ function saveOptions() {
     gblOptions.includePinnedPostForLikes = document.getElementById('includePinnedPostForLikes').checked;
     gblOptions.includePinnedPostForComments = document.getElementById('includePinnedPostForComments').checked;
     gblOptions.messageToSend = document.getElementById('txtMessageText').value;
+    gblOptions.theme = document.getElementById('selectTheme').value;
+    applyTheme();
 
     document.querySelectorAll('#detailsQueueColumns input').forEach((cb) => {
         var columnDataName = cb.id.replace('cb_', '');
