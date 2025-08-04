@@ -1684,6 +1684,28 @@ nav {
     bottom: -1px;
 }
 
+#igBotInjectedContainer nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #2583cc;
+    gap: 2px;
+}
+
+.pc-tab nav label {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.pc-tab nav label:hover {
+    background-color: #1b6da0;
+}
+
 #igBotInjectedContainer .schedule-row span.plus-sign {
     font-weight: bold;
     font-size: 26px;
