@@ -5510,6 +5510,14 @@ function bindEvents() {
 
     $('#btnSendBulkDM').click(bulkDM);
     $('#btnAiScan').click(aiScan);
+    $('#btnSaveAiSettings').click(function() {
+        var provider = $('#aiProviderSetting').val();
+        var apiKey = $('#txtAiApiKeySetting').val();
+        saveAiSettings(provider, apiKey);
+        $('#aiProvider').val(provider);
+        $('#txtAiApiKey').val(apiKey);
+        outputMessage('AI settings saved');
+    });
     $(document).on('click', '.aiFollow', function() {
         chrome.runtime.sendMessage({ follow: { username: $(this).data('username') } });
     });
@@ -5517,11 +5525,22 @@ function bindEvents() {
         chrome.runtime.sendMessage({ unfollowUser: $(this).data('username') });
     });
     $(document).on('click', '.aiDM', function() {
-        var msg = prompt('Message to send', $('#txtDmMessage').val() || '');
-        if (msg) {
-            sendDirectMessage($(this).data('username'), msg);
-        }
+        var username = $(this).data('username');
+        $('#aiDmModal').data('username', username).show();
+        $('#aiDmText').val($('#txtDmMessage').val() || '');
     });
+    $('#aiDmSend').click(function() {
+        var username = $('#aiDmModal').data('username');
+        var msg = $('#aiDmText').val();
+        if (msg && username) {
+            sendDirectMessage(username, msg);
+        }
+        $('#aiDmModal').hide();
+    });
+    $('#aiDmCancel').click(function() {
+        $('#aiDmModal').hide();
+    });
+    loadAiSettings();
 
 
     if (getCurrentPageUsername() != '') {
@@ -8821,6 +8840,24 @@ function bulkDM() {
     });
 }
 
+function saveAiSettings(provider, apiKey) {
+    chrome.storage.local.set({
+        aiProvider: provider,
+        aiApiKey: apiKey
+    });
+}
+
+function loadAiSettings() {
+    chrome.storage.local.get(['aiProvider', 'aiApiKey'], function(data) {
+        var provider = data.aiProvider || 'openai';
+        var apiKey = data.aiApiKey || '';
+        $('#aiProvider').val(provider);
+        $('#aiProviderSetting').val(provider);
+        $('#txtAiApiKey').val(apiKey);
+        $('#txtAiApiKeySetting').val(apiKey);
+    });
+}
+
 async function aiScan() {
     var keyword = $('#txtAiKeyword').val();
     var provider = $('#aiProvider').val();
@@ -8829,6 +8866,7 @@ async function aiScan() {
         alert('Keyword and API key required');
         return;
     }
+    saveAiSettings(provider, apiKey);
     var url;
     var body = { messages: [{ role: 'user', content: 'List Instagram usernames related to ' + keyword + ' separated by commas.' }] };
     if (provider === 'openai') {
@@ -8850,12 +8888,24 @@ async function aiScan() {
             },
             body: JSON.stringify(body)
         });
+        if (!response.ok) {
+            var errorText = await response.text();
+            outputMessage('AI scan failed: ' + response.status + ' ' + response.statusText);
+            console.error('AI scan error', errorText);
+            return;
+        }
         var data = await response.json();
-        var text = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '';
-        var usernames = text.split(/[\s,]+/).map(function(u) { return u.replace('@', '').trim(); }).filter(function(u) { return u; });
+        var text = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+        if (!text) {
+            outputMessage('AI scan failed: invalid response');
+            console.error('AI scan invalid response', data);
+            return;
+        }
+        var matches = text.match(/@?([A-Za-z0-9._]+)/g) || [];
+        var usernames = Array.from(new Set(matches.map(function(u) { return u.replace('@', '').trim(); })));
         renderAiResults(usernames);
     } catch (e) {
-        outputMessage('AI scan failed');
+        outputMessage('AI scan failed: ' + e.message);
         console.error(e);
     }
 }
