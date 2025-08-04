@@ -1,0 +1,689 @@
+{
+    "appName":
+    {
+        "message": "Automate GrowBot pour Instagram"
+    },
+    "appDesc":
+    {
+        "message": "Suivi/désabonnement/mention J'aime automatiques avec filtres avancés, minuteries aléatoires et autres fonctionnalités de haute technologie."
+    },
+    "Followers":
+    {
+        "message": "Abonnés"
+    },
+    "Following":
+    {
+        "message": "Abonnements"
+    },
+    "Posts":
+    {
+        "message": "Publications"
+    },
+    "Private":
+    {
+        "message": "Privé"
+    },
+    "Verified":
+    {
+        "message": "Vérifié"
+    },
+    "Last_Post_Date":
+    {
+        "message": "Date de la dernière publication"
+    },
+    "Follow_Ratio":
+    {
+        "message": "Ratio abonnements/abonnés"
+    },
+    "MutualFollowedBy":
+    {
+        "message": "Suivi mutuel par (abonnés en commun)"
+    },
+    "Username":
+    {
+        "message": "Nom d'utilisateur"
+    },
+    "Full_Name":
+    {
+        "message": "Nom complet"
+    },
+    "Has_Profile_Pic":
+    {
+        "message": "A une photo de profil"
+    },
+    "queueLimit":
+    {
+        "message": "Limiter la file à"
+    },
+    "Settings":
+    {
+        "message": "Paramètres"
+    },
+    "PerformanceOptions":
+    {
+        "message": "Options de performance"
+    },
+    "cbShowStamps":
+    {
+        "message": "Afficher les horodatages dans la file"
+    },
+    "cbRemoveFromQueue":
+    {
+        "message": "Retirer les comptes de la file après traitement"
+    },
+    "cbConvenienceLinks":
+    {
+        "message": "Afficher les boutons pratiques dans le flux (Liste blanche/Désabonner)"
+    },
+    "cbShowQueueOnScreen":
+    {
+        "message": "Afficher la file à l'écran"
+    },
+    "cbShowLikesInQueue":
+    {
+        "message": "Afficher les J'aime dans la file"
+    },
+    "cbShowProfilePicInQueue":
+    {
+        "message": "Afficher les photos de profil dans la file"
+    },
+    "cbLoadQueueOnStartup":
+    {
+        "message": "Charger la dernière file connue au démarrage"
+    },
+    "cbClickNotNow":
+    {
+        "message": "Cliquer sur 'Pas maintenant' lorsque Instagram demande d'envoyer des notifications"
+    },
+    "ConfigureWaitTimes":
+    {
+        "message": "Configurer les temps d'attente"
+    },
+    "Wait":
+    {
+        "message": "Attendre"
+    },
+    "secondsAfterAction":
+    {
+        "message": "secondes après suivre/se désabonner/aimer"
+    },
+    "SecondsAfterAdditionalInfo":
+    {
+        "message": "secondes après le chargement d'informations supplémentaires sur le compte"
+    },
+    "secondsAfterSkip":
+    {
+        "message": "secondes après avoir passé"
+    },
+    "randomizeWaitTime":
+    {
+        "message": "Randomiser le temps d'attente jusqu'à"
+    },
+    "minutesAfterSoft":
+    {
+        "message": "minutes après une limite douce"
+    },
+    "hoursAfterHard":
+    {
+        "message": "heures après une limite stricte"
+    },
+    "minutesAfter429":
+    {
+        "message": "minutes après la limite 429"
+    },
+    "hoursAfterActions":
+    {
+        "message": "heures après avoir effectué"
+    },
+    "followsUnfollows":
+    {
+        "message": "abonnements / désabonnements"
+    },
+    "QueueProcessingOptions":
+    {
+        "message": "Options de traitement de la file"
+    },
+    "saveQueueAutomatically":
+    {
+        "message": "Enregistrer automatiquement la file (dans le stockage local) après chaque compte traité"
+    },
+    "FollowingOptions":
+    {
+        "message": "Options de suivi"
+    },
+    "followAlreadyAttempted":
+    {
+        "message": "Suivre les personnes que j'ai déjà essayé de suivre"
+    },
+    "applyFiltersAutomatically":
+    {
+        "message": "Appliquer automatiquement les filtres lors du suivi"
+    },
+    "UnfollowingOptions":
+    {
+        "message": "Options de désabonnement"
+    },
+    "dontUnfollowFollowers":
+    {
+        "message": "Ne pas se désabonner des personnes qui me suivent"
+    },
+    "unfollowDaysAgo1":
+    {
+        "message": "Se désabonner des personnes que j'ai commencé à suivre il y a plus de"
+    },
+    "unfollowDaysAgo2":
+    {
+        "message": "jours (même si elles me suivent)"
+    },
+    "dontUnfollowDaysAgo1":
+    {
+        "message": "Ne pas se désabonner des personnes que j'ai commencé à suivre il y a moins de"
+    },
+    "dontUnfollowDaysAgo2":
+    {
+        "message": "jours"
+    },
+    "dontUnfollowNonGrowbot":
+    {
+        "message": "Ne pas se désabonner des personnes suivies en dehors de Growbot"
+    },
+    "dontUnfollowFilters":
+    {
+        "message": "Ne pas se désabonner des personnes qui correspondent à mes filtres"
+    },
+    "RemovingAndBlockingOptions":
+    {
+        "message": "Options de suppression et de blocage"
+    },
+    "dontRemoveOrBlockFilters":
+    {
+        "message": "Ne pas supprimer ou bloquer les personnes qui correspondent à mes filtres"
+    },
+    "relinkSubscription":
+    {
+        "message": "Relier l'abonnement"
+    },
+    "AccountFilters":
+    {
+        "message": "Filtres de compte"
+    },
+    "AccountFiltersHint":
+    {
+        "message": "Vous pouvez activer l'application automatique des filtres lors du suivi ou du désabonnement dans les paramètres. Ceci est recommandé pour l'efficacité et pour éviter les limites de taux."
+    },
+    "FollowRatio":
+    {
+        "message": "Ratio de suivi"
+    },
+    "LastPosted":
+    {
+        "message": "Dernière publication (il y a jours). Remarque : Growbot ne peut pas savoir quand un compte privé a publié pour la dernière fois, donc ce filtre ne s'applique pas aux comptes privés."
+    },
+    "ExternalUrlContainsText":
+    {
+        "message": "Lien dans la bio contient : "
+    },
+    "ExternalUrlNotContainsText":
+    {
+        "message": "Lien dans la bio ne contient pas : "
+    },
+    "BioContainsText":
+    {
+        "message": "La bio contient : "
+    },
+    "BioNotContainsText":
+    {
+        "message": "La bio ne contient pas : "
+    },
+    "BusinessCategoryNameContainsText":
+    {
+        "message": "La catégorie d'entreprise contient : "
+    },
+    "BusinessCategoryNameNotContainsText":
+    {
+        "message": "La catégorie d'entreprise ne contient pas : "
+    },
+    "HasNoProfilePicture":
+    {
+        "message": "N'a pas de photo de profil"
+    },
+    "HasProfilePicture":
+    {
+        "message": "A une photo de profil"
+    },
+    "PrivateAccounts":
+    {
+        "message": "Comptes privés"
+    },
+    "PublicAccounts":
+    {
+        "message": "Comptes publics"
+    },
+    "VerifiedAccounts":
+    {
+        "message": "Comptes vérifiés"
+    },
+    "NonVerifiedAccounts":
+    {
+        "message": "Comptes non vérifiés"
+    },
+    "BusinessAccounts":
+    {
+        "message": "Comptes professionnels"
+    },
+    "NonBusinessAccounts":
+    {
+        "message": "Comptes non professionnels"
+    },
+    "JoinedRecentlyAccounts":
+    {
+        "message": "Comptes récemment inscrits"
+    },
+    "NonJoinedRecentlyAccounts":
+    {
+        "message": "Comptes non récemment inscrits"
+    },
+    "BelowFiltersApply":
+    {
+        "message": "Les filtres ci-dessous s'appliquent uniquement lors du suivi (pas du désabonnement) :"
+    },
+    "FollowsMe":
+    {
+        "message": "Me suit"
+    },
+    "DoesntFollowMe":
+    {
+        "message": "Ne me suit pas"
+    },
+    "FollowedByMe":
+    {
+        "message": "Suivi par moi"
+    },
+    "NotFollowedByMe":
+    {
+        "message": "Non suivi par moi"
+    },
+    "ResetFilters":
+    {
+        "message": "Réinitialiser les filtres"
+    },
+    "ApplyFilters":
+    {
+        "message": "Appliquer les filtres à la file actuelle"
+    },
+    "LoadCurrentFollowers":
+    {
+        "message": "Charger les abonnés de $account$",
+        "title": "Charge les abonnés de $account$ dans la file",
+        "placeholders":
+        {
+            "account":
+            {
+                "content": "$1",
+                "example": "Growbot4IG"
+            }
+        }
+    },
+    "LoadCurrentFollowing":
+    {
+        "message": "Charger les abonnements de $account$",
+        "title": "Charge dans la file les comptes auxquels $account$ est abonné",
+        "placeholders":
+        {
+            "account":
+            {
+                "content": "$1",
+                "example": "Growbot4IG"
+            }
+        }
+    },
+    "LoadCurrentHashtagPosters":
+    {
+        "message": "Charger les utilisateurs du hashtag #$hashtag$",
+        "title": "Charge dans la file les comptes qui ont publié avec le hashtag $hashtag$",
+        "placeholders":
+        {
+            "hashtag":
+            {
+                "content": "$1",
+                "example": "ootd"
+            }
+        }
+    },
+    "LoadPendingFollowRequests":
+    {
+        "message": "Charger les demandes d'abonnement en attente",
+        "title": "Charge les demandes pour suivre des comptes privés qui n'ont pas encore été approuvées ou rejetées (elles comptent dans votre total d'abonnements)"
+    },
+    "LoadCommenters":
+    {
+        "message": "Charger les commentateurs de $account$",
+        "title": "Charge dans la file les comptes qui ont commenté les publications de $account$",
+        "placeholders":
+        {
+            "account":
+            {
+                "content": "$1",
+                "example": "Growbot4IG"
+            }
+        }
+    },
+    "LoadLikers":
+    {
+        "message": "Charger les personnes ayant aimé $account$",
+        "title": "Charge dans la file les comptes qui ont aimé les publications de $account$",
+        "placeholders":
+        {
+            "account":
+            {
+                "content": "$1",
+                "example": "Growbot4IG"
+            }
+        }
+    },
+    "LoadQueue":
+    {
+        "message": "Charger la file"
+    },
+    "SaveQueue":
+    {
+        "message": "Enregistrer la file"
+    },
+    "SelectAll":
+    {
+        "message": "Tout sélectionner",
+        "title": "Sélectionner tous les comptes affichés"
+    },
+    "SelectNone":
+    {
+        "message": "Ne rien sélectionner",
+        "title": "Ne rien sélectionner"
+    },
+    "InvertSelection":
+    {
+        "message": "Inverser la sélection",
+        "title": "Sélectionner l'opposé de la sélection actuelle"
+    },
+    "RemoveSelected":
+    {
+        "message": "Supprimer la sélection",
+        "title": "Supprimer tous les comptes sélectionnés"
+    },
+    "GetMoreData":
+    {
+        "message": "Obtenir plus de données",
+        "title": "Obtient plus de données pour chaque compte dans la file : statut privé, abonnés, abonnements, nombre de publications"
+    },
+    "AddToWhitelist":
+    {
+        "message": "Ajouter la sélection à la liste blanche",
+        "title": "Ajouter les comptes sélectionnés à la liste des comptes à ne jamais désabonner"
+    },
+    "LoadWhiteList":
+    {
+        "message": "Charger la liste blanche"
+    },
+    "SaveWhiteList":
+    {
+        "message": "Enregistrer la liste blanche",
+        "title": "Enregistre la liste blanche dans le stockage local et/ou sur le disque"
+    },
+    "Hide":
+    {
+        "message": "Masquer"
+    },
+    "LikeUsersLatest":
+    {
+        "message": "Aimer la dernière publication de l'utilisateur"
+    },
+    "PicsWhenFollowing":
+    {
+        "message": "Photos lors du suivi"
+    },
+    "Follow":
+    {
+        "message": "Suivre"
+    },
+    "Unfollow":
+    {
+        "message": "Se désabonner"
+    },
+    "LikeOnly":
+    {
+        "message": "Aimer seulement"
+    },
+    "RemoveFromFollowers":
+    {
+        "message": "Retirer de mes abonnés"
+    },
+    "Block":
+    {
+        "message": "Bloquer"
+    },
+    "ProcessQueue":
+    {
+        "message": "Traiter la file  ↑"
+    },
+    "Like":
+    {
+        "message": "Aimer"
+    },
+    "PostsFrom":
+    {
+        "message": "Publications de"
+    },
+    "HashtagPage":
+    {
+        "message": "Page de hashtag"
+    },
+    "PostsFromFeed":
+    {
+        "message": "Publications du fil"
+    },
+    "Stop":
+    {
+        "message": "Stop !"
+    },
+    "Log":
+    {
+        "message": "Journal"
+    },
+    "Done":
+    {
+        "message": "Terminé. "
+    },
+    "QueueLimitReached":
+    {
+        "message": "Limite de file atteinte. "
+    },
+    "PreviouslyAttempted":
+    {
+        "message": "Déjà tenté de suivre : $number$ comptes",
+        "placeholders":
+        {
+            "number":
+            {
+                "content": "$1",
+                "example": "2874"
+            }
+        }
+    },
+    "PreviouslyLiked":
+    {
+        "message": "Déjà aimé : $number$ publications",
+        "placeholders":
+        {
+            "number":
+            {
+                "content": "$1",
+                "example": "2874"
+            }
+        }
+    },
+    "AddedToWhitelist":
+    {
+        "message": " ajouté à la liste blanche"
+    },
+    "AlreadyOnWhitelist":
+    {
+        "message": " déjà dans la liste blanche"
+    },
+    "WhitelistLoaded":
+    {
+        "message": "Liste blanche chargée : $number$ comptes",
+        "placeholders":
+        {
+            "number":
+            {
+                "content": "$1",
+                "example": "2874"
+            }
+        }
+    },
+    "WhitelistSavedLocal":
+    {
+        "message": "Liste blanche enregistrée dans le stockage local"
+    },
+    "WhitelistSavedFile":
+    {
+        "message": "Liste blanche enregistrée dans le fichier growbot-whitelist.txt"
+    },
+    "WhitelistLoadLocal":
+    {
+        "message": "Charger la dernière liste blanche connue"
+    },
+    "WhitelistLoadFile":
+    {
+        "message": "Charger la liste blanche depuis un fichier"
+    },
+    "WhitelistLoadQuestion":
+    {
+        "message": "D'où souhaitez-vous charger la liste blanche ?"
+    },
+    "QueueLoaded":
+    {
+        "message": "File chargée : $number$ comptes",
+        "placeholders":
+        {
+            "number":
+            {
+                "content": "$1",
+                "example": "2874"
+            }
+        }
+    },
+    "QueueSavedLocal":
+    {
+        "message": "File enregistrée dans le stockage local"
+    },
+    "QueueSavedFile":
+    {
+        "message": "File enregistrée dans le fichier growbot-queue.txt"
+    },
+    "QueueLoadLocal":
+    {
+        "message": "Charger la dernière file connue"
+    },
+    "QueueLoadFile":
+    {
+        "message": "Charger la file depuis un fichier"
+    },
+    "QueueLoadQuestion":
+    {
+        "message": "D'où souhaitez-vous charger la file ?"
+    },
+    "QueueEmpty":
+    {
+        "message": "Plus aucun compte dans la file !"
+    },
+    "TimeDelay":
+    {
+        "message": "attente de $time$ secondes",
+        "placeholders":
+        {
+            "time":
+            {
+                "content": "$1",
+                "example": "48"
+            }
+        }
+    },
+    "RateLimitHard":
+    {
+        "message": "limite de taux d'Instagram, attente de $time$ heures",
+        "placeholders":
+        {
+            "time":
+            {
+                "content": "$1",
+                "example": "48"
+            }
+        }
+    },
+    "RateLimitSoft":
+    {
+        "message": "(doux) limite 403 d'Instagram, attente de $time$ minutes",
+        "placeholders":
+        {
+            "time":
+            {
+                "content": "$1",
+                "example": "30"
+            }
+        }
+    },
+    "RateLimit429":
+    {
+        "message": "limite 429 d'Instagram, attente de $time$ minutes",
+        "placeholders":
+        {
+            "time":
+            {
+                "content": "$1",
+                "example": "1"
+            }
+        }
+    },
+    "AccountNotFound404":
+    {
+        "message": "404 introuvable !"
+    },
+    "AccountsLoaded":
+    {
+        "message": "$tmpQueue$ comptes supplémentaires chargés, $acctsQueue$ comptes chargés jusqu'à présent",
+        "placeholders":
+        {
+            "tmpQueue":
+            {
+                "content": "$1",
+                "example": "24"
+            },
+            "acctsQueue":
+            {
+                "content": "$2",
+                "example": "500"
+            }
+        }
+    },
+    "DataLoaded":
+    {
+        "message": "Données supplémentaires chargées pour $tmpQueue$ sur $acctsQueue$ comptes",
+        "placeholders":
+        {
+            "tmpQueue":
+            {
+                "content": "$1",
+                "example": "24"
+            },
+            "acctsQueue":
+            {
+                "content": "$2",
+                "example": "500"
+            }
+        }
+    },
+    "FinishedAdditionalData":
+    {
+        "message": "Informations supplémentaires récupérées, enregistrer la file maintenant ?"
+    }
+}

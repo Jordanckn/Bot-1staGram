@@ -20,7 +20,7 @@
             "service_worker": "backgroundscript.js"
         },
         "action": {
-            "default_title": "GrowBot Automator for Instagram"
+            "default_title": "__MSG_appName__"
         },
         "icons": {
             "16": "icon_16.png",
