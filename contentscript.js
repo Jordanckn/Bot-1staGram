@@ -140,7 +140,7 @@ function growbotActionRunner() {
 
     var nowTime = new Date().getTime();
     var nowDate = new Date().getDate();
-    var yesterday = new Date(new Date().getTime() - (24 * 59 * 60 * 1000));
+    var yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
     var oneMinuteAgo = new Date(Date.now() - 1000 * 60);
 
     $('#currentTime').html('Current Time: ' + prettyDate(nowTime));
