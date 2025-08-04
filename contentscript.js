@@ -287,7 +287,12 @@ var defaultFilterOptions = {
     business_category_name_contains: false,
     business_category_name_contains_text: '',
     business_category_name_not_contains: false,
-    business_category_name_not_contains_text: ''
+    business_category_name_not_contains_text: '',
+    // Filter accounts based on detected language and location keywords
+    language_filter: true,
+    language_code: 'fr',
+    language_min_percentage: 60,
+    location_keywords: '#france,#paris,france,paris'
 };
 
 
@@ -6022,6 +6027,56 @@ async function filterCriteriaMet(acct) {
         }
 
         if (bioContains == true) {
+            filtered = true;
+        }
+    }
+
+    // Filter by detected language
+    if (gblOptions.filterOptions.language_filter === true) {
+        if (!acct.languageCode) {
+            var langString = acct.biography || '';
+            if (acct.edge_owner_to_timeline_media && acct.edge_owner_to_timeline_media.edges && acct.edge_owner_to_timeline_media.edges.length > 0) {
+                for (var ci = 0; ci < acct.edge_owner_to_timeline_media.edges.length; ci++) {
+                    if (acct.edge_owner_to_timeline_media.edges[ci] && acct.edge_owner_to_timeline_media.edges[ci].caption && acct.edge_owner_to_timeline_media.edges[ci].caption.text) {
+                        langString = langString + ' ' + acct.edge_owner_to_timeline_media.edges[ci].caption.text;
+                    }
+                }
+            }
+            acct = await detectLanguage(langString, acct);
+        }
+
+        if (acct.languageCode && acct.languageCode.toLowerCase() !== gblOptions.filterOptions.language_code.toLowerCase()) {
+            outputMessage(acct.username + ' filtered - language not ' + gblOptions.filterOptions.language_code);
+            filtered = true;
+        } else if (acct.languagePercentage && acct.languagePercentage < gblOptions.filterOptions.language_min_percentage) {
+            outputMessage(acct.username + ' filtered - language percentage too low');
+            filtered = true;
+        }
+    }
+
+    // Filter by location keywords
+    if (gblOptions.filterOptions.location_keywords && gblOptions.filterOptions.location_keywords.trim() !== '') {
+        var keywords = gblOptions.filterOptions.location_keywords.toLowerCase().split(',');
+        var locString = '';
+        if (acct.city_name) locString += ' ' + acct.city_name;
+        if (acct.public_phone_country_code) locString += ' ' + acct.public_phone_country_code;
+        if (acct.biography) locString += ' ' + acct.biography;
+        if (acct.edge_owner_to_timeline_media && acct.edge_owner_to_timeline_media.edges && acct.edge_owner_to_timeline_media.edges.length > 0) {
+            for (var li = 0; li < acct.edge_owner_to_timeline_media.edges.length; li++) {
+                if (acct.edge_owner_to_timeline_media.edges[li] && acct.edge_owner_to_timeline_media.edges[li].caption && acct.edge_owner_to_timeline_media.edges[li].caption.text) {
+                    locString = locString + ' ' + acct.edge_owner_to_timeline_media.edges[li].caption.text;
+                }
+            }
+        }
+        var locMatch = false;
+        for (var ki = 0; ki < keywords.length; ki++) {
+            if (locString.toLowerCase().indexOf(keywords[ki].trim()) > -1) {
+                locMatch = true;
+                break;
+            }
+        }
+        if (locMatch === false) {
+            outputMessage(acct.username + ' filtered - location keywords not found');
             filtered = true;
         }
     }
