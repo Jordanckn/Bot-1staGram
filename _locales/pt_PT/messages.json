@@ -371,12 +371,15 @@
       "message": "Selecionar Nenhum",
       "title": "Não selecionar nada"
    },
-   "Settings": {
-      "message": "Configurações"
-   },
-   "Stop": {
-      "message": "Parar!"
-   },
+    "Settings": {
+        "message": "Configurações"
+    },
+    "DarkMode": {
+        "message": "Modo escuro"
+    },
+    "Stop": {
+        "message": "Parar!"
+    },
    "TimeDelay": {
       "message": "aguardando $time$ segundos",
       "placeholders": {

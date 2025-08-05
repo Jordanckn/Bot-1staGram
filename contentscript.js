@@ -5291,6 +5291,7 @@ function injectControlsDiv() {
         loadPreviousAttempts();
         injectVersionNumber();
         loadActionsQueue();
+        initializeTheme();
 
 
         ready(igExternalVars.qsForConvenienceButtons, function(element) {
@@ -5336,6 +5337,34 @@ function buildMessagesJson() {
             alert($(this).attr('localeMessage'));
         }
     });
+}
+
+function initializeTheme() {
+    var container = document.getElementById('igBotInjectedContainer');
+    var toggle = document.getElementById('themeToggle');
+
+    function apply(mode) {
+        if (container) {
+            container.setAttribute('data-theme', mode);
+        }
+    }
+
+    chrome.storage.sync.get('theme', function(data) {
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var mode = data.theme || (prefersDark ? 'dark' : 'light');
+        apply(mode);
+        if (toggle) {
+            toggle.checked = mode === 'dark';
+        }
+    });
+
+    if (toggle) {
+        toggle.addEventListener('change', function() {
+            var mode = toggle.checked ? 'dark' : 'light';
+            apply(mode);
+            chrome.storage.sync.set({ theme: mode });
+        });
+    }
 }
 
 (function(win) {

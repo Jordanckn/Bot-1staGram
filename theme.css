@@ -1,0 +1,22 @@
+:root {
+  --igbot-bg: #ffffff;
+  --igbot-text: #111111;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --igbot-bg: #121212;
+    --igbot-text: #e0e0e0;
+  }
+}
+#igBotInjectedContainer {
+  background-color: var(--igbot-bg);
+  color: var(--igbot-text);
+}
+#igBotInjectedContainer[data-theme="light"] {
+  --igbot-bg: #ffffff;
+  --igbot-text: #111111;
+}
+#igBotInjectedContainer[data-theme="dark"] {
+  --igbot-bg: #121212;
+  --igbot-text: #e0e0e0;
+}
