@@ -11,7 +11,7 @@
         },
         "content_scripts": [{
             "matches": ["https://*.instagram.com/*", "https://*.growbotforfollowers.com/*"],
-            "css": ["theme.blue.css", "contentscript.css", "jquery-ui.css"],
+            "css": ["theme.blue.css", "theme.css", "contentscript.css", "jquery-ui.css"],
             "js": ["jquery3.js", "jquery-ui.js", "wNumb.js", "nouislider.js", "jquery.tablesorter.js", "jquery.tablesorter.widgets.js", "widget-pager.js", "contentscript.js"],
             "run_at": "document_end",
             "all_frames": false

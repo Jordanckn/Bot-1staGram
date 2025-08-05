@@ -59,6 +59,10 @@
     {
         "message": "Settings"
     },
+    "DarkMode":
+    {
+        "message": "Modo oscuro"
+    },
     "PerformanceOptions":
     {
         "message": "Performance Options"
